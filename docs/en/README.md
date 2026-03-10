@@ -14,14 +14,16 @@ Select the appropriate folder in the `templates` directory to place your configu
 - **gaming** - Gaming device configurations (optimized for gaming applications)
 - **transcend** - Unlock device configurations (for bypassing specific restrictions)
 
+**Note: Please create a subfolder for the device brand (e.g., `Xiaomi`, `Samsung`, `OnePlus`) under the corresponding category directory, and place the configuration file inside the brand folder.**
+
 ### 2. Create a Configuration File
 
-Create a `.toml` file named after the **device model** in the corresponding folder:
+Create a `.toml` file named after the **device model** in the corresponding brand folder:
 
 For example:
-- `xiaomi_15_pro.toml`
-- `samsung_s24_ultra.toml`
-- `pixel_8_pro.toml`
+- `Xiaomi/xiaomi_15_pro.toml`
+- `Samsung/samsung_s24_ultra.toml`
+- `Google/pixel_8_pro.toml`
 
 ### 3. Configuration Format
 

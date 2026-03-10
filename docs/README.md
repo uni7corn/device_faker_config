@@ -14,14 +14,16 @@
 - **gaming** - 游戏设备配置（专为游戏应用优化）
 - **transcend** - 破限设备配置（用于破除特定限制）
 
+**注意：请在对应分类目录下，根据设备品牌创建子文件夹（如 `Xiaomi`, `Samsung`, `OnePlus` 等），并将配置文件放入品牌文件夹中。**
+
 ### 2. 创建配置文件
 
-在对应文件夹中创建以**设备型号**命名的 `.toml` 文件：
+在对应品牌文件夹中创建以**设备型号**命名的 `.toml` 文件：
 
 例如：
-- `xiaomi_15_pro.toml`
-- `samsung_s24_ultra.toml`
-- `pixel_8_pro.toml`
+- `Xiaomi/xiaomi_15_pro.toml`
+- `Samsung/samsung_s24_ultra.toml`
+- `Google/pixel_8_pro.toml`
 
 ### 3. 配置格式
 
