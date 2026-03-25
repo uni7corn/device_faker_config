@@ -1,0 +1,9 @@
+[templates."Xiaomi Pad 6"]
+packages = [ "com.tencent.mobileqq" ]
+mode = "full"
+characteristics = "tablet"
+manufacturer = "Xiaomi"
+brand = "Xiaomi"
+model = "23046RP50C"
+author = "GitHub@Seyud"
+description = "QQ 平板模式"
