@@ -1,0 +1,9 @@
+[templates."Samsung Galaxy Z Fold6"]
+packages = [ "com.tencent.mm" ]
+manufacturer = "samsung"
+brand = "samsung"
+model = "SM-F9560"
+mode = "lite"
+force_denylist_unmount = true
+author = "GitHub@Seyud"
+description = "微信平板模式"
