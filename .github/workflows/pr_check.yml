@@ -1,0 +1,52 @@
+name: PR Review Checker
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+    paths:
+      - 'templates/**/*.toml'
+
+jobs:
+  validate-toml:
+    name: Validate TOML Templates
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          
+      - name: Check TOML Format and Schema
+        run: |
+          python .github/scripts/validate_templates.py
+          
+      - name: Check Naming Conventions (Lowercase Filenames)
+        run: |
+          # 检查 templates 目录下是否所有的 .toml 文件都使用了小写和下划线
+          find templates -name "*.toml" | while read file; do
+            filename=$(basename "$file")
+            # 允许小写字母、数字、下划线、短横线
+            if [[ ! "$filename" =~ ^[a-z0-9_-]+\.toml$ ]]; then
+              # 有些大写文件名(如 OnePlus_15.toml)目前存在，因此先只做警告，不退出 1。
+              # 如果想严格执行，将 echo "::warning" 换成 "::error" 并在最后 exit 1
+              echo "::warning file=$file::文件名建议只使用小写字母、数字和下划线。 ($filename)"
+            fi
+          done
+          
+      - name: Check for trailing spaces
+        run: |
+          # 检查是否有行尾多余的空格，避免不必要的格式变更
+          if git grep -n "[[:blank:]]$" -- "templates/"; then
+            echo "::error::发现行尾有多余空格，请移除！"
+            exit 1
+          fi || true
